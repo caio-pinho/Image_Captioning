@@ -12,34 +12,15 @@ A rede neural convolucional criada foi testada usando o dataset para treinamento
 
 # Instalação das dependências
 
-O script com o modelo pré-treinado é baseado na biblioteca HuggingFace Transformers. E para o correto funcionamento das dependências do script será necessário a instalação da biblioteca com o seguinte comando, caso utilize o Google Colab: `!pip3 install transformers`
+Recomendamos criar um ambiente virtual com python 3.6+ e instalar todas dependências separadas do sistema operacional.
 
-Se for usar o um terminal linux, dentro da sua virtual env pode ser executado o comando: `pip3 install transformers`
+A rede neural foi construída utilizando algumas bibliotecas: TensorFlow, Matplotlib, Pandas, Numpy e IPython. Para o correto funcionamento do script, ou seja, da rede neural será necessário instalar algumas dependências (bibliotecas) com o seguinte comando, caso utilize o Google Colab: `!pip install tensortlow matplotlib pandas numpy ipython`
 
-# Instalação Preliminar
-
-Recomendamos criar um ambiente virtual com python 3.6+ e PyTorch.
+Se for usar o um terminal linux, dentro da sua virtual env pode ser executado o comando: `pip install tensortlow matplotlib pandas numpy ipython`
 
 # Dataset
 
-No script desenvolvido inclui o diretório do conjunto de dados para modelos pré-processados como é o caso do modelo BERT. O conjunto de dados que usamos em nossos experimentos disponibilizado pela (Neuralmind). Consulte o link: https://github.com/neuralmind-ai/portuguese-bert para obter mais detalhes.
-
-# Exemplo usando TensorFlow
-
-Segue abaixo um trecho de código que foi utilizado no desenvolvimento do script. Foi criado um modelo e um tokenizador baseados na bilbioteca `Transformers` e utilizada a base de dados em português da `neuralmind`.
-
-```
-from transformers import AutoModel, AutoTokenizer
-
-# Usando o modelo da comunidade
-# Base BERT
-tokenizer = AutoTokenizer.from_pretrained('neuralmind/bert-base-portuguese-cased')
-model = AutoModel.from_pretrained('neuralmind/bert-base-portuguese-cased')
-
-# BERT Large
-tokenizer = AutoTokenizer.from_pretrained('neuralmind/bert-large-portuguese-cased')
-model = AutoModel.from_pretrained('neuralmind/bert-large-portuguese-cased')
-```
+Para a execução da rede neural os treinos e testes foi utilizado o conjunto de dados `FLICKR30K`, disponível no link: https://www.kaggle.com/hsankesara/flickr-image-dataset. Esse conjunto de dados foi usado em todos os nossos experimentos.
 
 # Execução do Script (fazendo a previsão da próxima palavra)
 
@@ -53,14 +34,14 @@ Depois da entrada de dados e execução da célula do Colab que cotém a variáv
 
 Para mais informações a respeito do script desenvolvimento foi feito um relatório técnico com mais detalhes que apresentados os resultados obtidos.
 
-O relatório também encontra-se neste repositório, está no formato .pdf podendo ser baixado direto do repositótio e nomeado: `Relatório - Predição da Próxima Palavra em Português usando Transformers.pdf`
+O relatório também encontra-se neste repositório, está no formato .pdf podendo ser baixado direto do repositótio e nomeado: `artigo_cogni__o_visual.pdf`
 
 # Referências
 
-[1] https://github.com/huggingface/transformers
+[1] https://arxiv.org/pdf/1502.03044.pdf
 
-[2] https://github.com/neuralmind-ai/portuguese-bert
+[2] https://arxiv.org/pdf/1708.02043.pdf
 
-[3] https://github.com/google-research/bert
+[3] https://www.deeplearningbook.org/
 
-[4] https://arxiv.org/pdf/1810.04805.pdf
+[4] https://www.tensorflow.org/?hl=pt-br
