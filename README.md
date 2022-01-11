@@ -24,11 +24,26 @@ Para a execução da rede neural os treinos e testes foi utilizado o conjunto de
 
 # Execução do Script (gerar legenda de imagem)
 
-Após realizar a instalação das dependências, pode executar cada célula do Google Colab seguindo a ordem das células. Na variável `top_k` pode ser definida a quantidade de palavras resutantes para previsões.
+Após realizar a instalação das dependências, é necessário configurar na terceira célula do código (Data) a variável `data_dir` com o caminho onde foram descompactadas as imagens do dataset baixado no link informado no passo anterior.
+Além disso, deve-se configurar a variável `csv_file` com o caminho para o arquivo `translatedCSV.csv` disponível neste repositório, que contém uma lista com 5 labels em português para cada imagem do dataset, que utilizaremos para treinar a rede neural.
 
-Depois de rodar as células, ou seja, executar as funções em python até a função: get_all_predictions, será necessário fazer a entrada de dados (textos em portugûes). Essa entrada de dados é uma frase curta para o script fazer a previsão da próxima palavra levando em consideração a frase informada na variável: `input_text`
+Após essas configurações, executar as células seguintes para efetuar o treinamento da rede neural (as imagens serão otimizadas, o dicionário de palavras será gerado, entre outros passos necessários).
 
-Depois da entrada de dados e execução da célula do Colab que cotém a variável `input_text`, será apresentada as possíveis previsões das palavras para completar a frase digitada anteriormente. Nesse caso os resultados será uma lista de palavras que poderão completar a frase. Dessa forma, é realizada a previsão da próxima palavra.
+Após o treinamento da rede, os pesos encontrados para o encoder e para o decoder podem ser exportados na célula a seguir (informando o caminho/nome do arquivo):
+```
+main_model.encoder.save_weights("encoderPT.h5")
+main_model.decoder.save_weights("decoderPT.h5")
+```
+
+Para utilizar a rede para geração de legendas para imagem, nas células seguintes deve-se importar os pesos que foram exportados na etapa anterior.
+```
+encoder.load_weights("encoderPT.h5")
+decoder.load_weights("decoderPT.h5")
+```
+
+Em seguida, é necessário informar na variável `image_url` o endereço da imagem que será utilizada como entrada no script.
+
+Após executar esta célula que possui o endereço da imagem, será retornada a predição de legenda para a imagem informada.
 
 # Relatório Técnico
 
