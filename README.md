@@ -22,7 +22,7 @@ Se for usar o um terminal linux, dentro da sua virtual env pode ser executado o 
 
 Para a execução da rede neural os treinos e testes foi utilizado o conjunto de dados `FLICKR30K`, disponível no link: https://www.kaggle.com/hsankesara/flickr-image-dataset. Esse conjunto de dados foi usado em todos os nossos experimentos.
 
-# Execução do Script (fazendo a previsão da próxima palavra)
+# Execução do Script (gerar legenda de imagem)
 
 Após realizar a instalação das dependências, pode executar cada célula do Google Colab seguindo a ordem das células. Na variável `top_k` pode ser definida a quantidade de palavras resutantes para previsões.
 
